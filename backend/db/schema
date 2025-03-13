@@ -1,0 +1,119 @@
+import { Schema } from "mongoose";
+
+export const UserSchema = new Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+        cartData: {
+            type: Object,
+            default: {},
+        },
+    }, {
+        collection: "users",
+        strict: false,
+        minimize: false,
+    }
+);
+
+export const CategorySchema = new Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+        },
+        description: {
+            type: String,
+            required: true,
+        },       
+    }, {
+      collection: "categories",
+      strict: false,
+    }
+);
+
+export const ProductSchema = new Schema({
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    price: { type: Number, required: true },
+    image: { type: Array, required: true },
+    category: {type: String, required: true },
+    subCategory: {type: String, required: true },
+    sizes: { type: Array, required: true },
+    bestseller: { type: Boolean},
+    date: {type: Number, required: true},
+    sold_on: {
+        type: Date,
+        default: null
+    }
+}, {
+    collection: "products",
+    strict: false,
+    timestamps: true
+})
+
+export const MessageSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "users",
+        required: true
+    },
+    product: {
+        type: Schema.Types.ObjectId,
+        ref: "products",
+        required: true
+    },
+    message: { type: String, required: true },
+}, {
+    collection: "messages",
+    strict: false,
+    timestamps: true
+})
+
+export const BargainOfferSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "users",
+        required: true
+    },
+    product: {
+        type: Schema.Types.ObjectId,
+        ref: "products",
+        required: true
+    },
+    price: { type: Number, required: true },
+    message: { type: String, required: true },
+    status: { type: String, required: true },
+}, {
+    collection: "bargain_offers",
+    strict: false,
+    timestamps: true
+})
+
+export const CategoryProductPivotSchema = new Schema({
+    category_id: {
+        type: Schema.Types.ObjectId,
+        ref: "categories",
+        required: true
+    },
+    product_id: {
+        type: Schema.Types.ObjectId,
+        ref: "products",
+        required: true
+    }
+}, {
+    collection: "category_product_pivot",
+    strict: false,
+    timestamps: true
+})
+

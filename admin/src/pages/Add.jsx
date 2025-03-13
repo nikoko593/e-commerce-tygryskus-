@@ -43,10 +43,8 @@ const Add = () => {
       console.log(response.data);
 
     } catch (error) {
-      
     }
   }
-
 
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3'>
