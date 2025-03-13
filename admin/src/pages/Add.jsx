@@ -43,7 +43,6 @@ const Add = () => {
       console.log(response.data);
 
     } catch (error) {
-      345oj34i95j349ui534ui95i34j5i
     }
   }
 
