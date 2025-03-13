@@ -43,10 +43,9 @@ const Add = () => {
       console.log(response.data);
 
     } catch (error) {
-      console.log(error)
+      345oj34i95j349ui534ui95i34j5i
     }
   }
-
 
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3'>
