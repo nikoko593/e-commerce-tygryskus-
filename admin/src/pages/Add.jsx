@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assets'
-import axios from 'axios'
-import { backendUrl } from '../App'
-import { Separator } from '@/components/ui/separator'
-import { Progress } from '@/components/ui/progress'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import AxiosInstance from '@/lib/AxiosInstance'
+import { toast } from 'react-toastify'
 
 const Add = () => {
 
@@ -43,9 +39,23 @@ const Add = () => {
       image4 && formData.append("image4", image4)
 
       const response = await AxiosInstance.post("/api/product/add", formData);
-      console.log(response.data);
+      
+      if (response.data.success) {
+        toast.success(response.data.message)
+        setName('')
+        setDescription('')
+        setImage1(false)
+        setImage2(false)
+        setImage3(false)
+        setImage4(false)
+        setPrice('')
+      } else {
+        toast.error(response.data.message)
+      }
 
     } catch (error) {
+      console.log(error);
+      toast.error(error.message)
     }
   }
   
