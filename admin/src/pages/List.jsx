@@ -65,7 +65,7 @@ const List = () => {
                   <TableCell>{product._id}</TableCell>
                   <TableCell>{product.name}</TableCell>
                   <TableCell>{product.description}</TableCell>
-                  <TableCell className="text-right">{convertToCurrency(product.price, "code")}</TableCell>
+                  <TableCell className="text-right">{convertToCurrency(product.price, "symbol")}</TableCell>
                   <TableCell className="text-right">
                     <Button onClick={() => navigate(`/list/${product._id}`)}>View </Button>
                   </TableCell>

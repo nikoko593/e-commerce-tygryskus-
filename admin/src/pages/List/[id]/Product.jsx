@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import AxiosInstance from '@/lib/AxiosInstance'
 import React from 'react'
 import { useParams } from 'react-router-dom'
@@ -30,8 +31,15 @@ const Product = () => {
  if (product === null) return <div>Product not found</div>
 
  return (
-  <div>
+  <div className='flex flex-col'>
+    <span className='text-xl'>
       Product {id}
+    </span>
+
+    <div className='flex flex-row space-x-3'>
+      <Button onClick={() => console.log(product)}>Edit product</Button>
+      <Button variant="destructive" onClick={() => console.log(product)}>Delete product</Button>
+    </div>
   </div>
 )
 
