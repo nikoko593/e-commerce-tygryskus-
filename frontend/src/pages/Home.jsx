@@ -12,6 +12,7 @@ import AxiosInstance from '@/lib/AxiosInstance'
 const Home = () => {
   return (
     <div>
+       <RotatingCube/> 
       {/* <RotatingCube/> */}
 
       
