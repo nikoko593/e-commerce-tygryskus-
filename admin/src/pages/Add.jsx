@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import axios from 'axios'
 import { backendUrl } from '../App'
+import { Separator } from '@/components/ui/separator'
+import { Progress } from '@/components/ui/progress'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import AxiosInstance from '@/lib/AxiosInstance'
 
 const Add = () => {
 
@@ -38,19 +42,17 @@ const Add = () => {
       image3 && formData.append("image3", image3)
       image4 && formData.append("image4", image4)
 
-      const response = await axios.post(backendUrl + "/api/product/add",formData);
-
+      const response = await AxiosInstance.post("/api/product/add", formData);
       console.log(response.data);
 
     } catch (error) {
     }
   }
-
+  
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3'>
       <div>
         <p className='mb-2'>Upload Image</p>
-
         <div className='flex gap-2'>
           <label htmlFor="image1">
             <img className='w-20' src={!image1 ? assets.upload_area : URL.createObjectURL(image1)} alt="" />
