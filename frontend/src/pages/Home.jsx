@@ -5,12 +5,17 @@ import BestSeller from '../components/BestSeller'
 import RotatingCube from '../components/RotatingCube'
 import OurPolicy from '../components/OurPolicy'
 import NewsletterBox from '../components/NewsletterBox'
+import { Button } from '@/components/ui/button'
+import AxiosInstance from '@/lib/AxiosInstance'
 
 
 const Home = () => {
   return (
     <div>
+      /* <RotatingCube/> */
       {/* <RotatingCube/> */}
+
+      
       <Hero />
       <LatestCollection />
       <BestSeller/>
